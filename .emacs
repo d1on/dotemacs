@@ -3,18 +3,46 @@
 (evil-mode 1)
 
 (add-to-list 'load-path "~/.emacs.d/")
-
+;;
+;; Swap Keys
+;; 
 (load "key-chord.el")
 (require 'key-chord)
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map  "kj" 'evil-normal-state)
-
+;;
+;; Undo Tree
+;; 
 (load "undo-tree.el")
-
+;;
+;; Themes
+;; 
 (load "dash.el")
 (load "solarized.el")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'solarized-dark)
+;;
+;; Plugins
+;; 
+(load "evil-visualstar.el")
+(load "evil-jumper.el")
+(load "evil-surround.el")
+(load "evil-leader.el")
+(load "evil-nerd-commenter.el")
+;; ",," is the default value of evilnc-hotkey-comment-operator,
+;; so below line is NOT needed.
+;; But please put it *ABOVE* the (require 'evil-nerd-commenter)!!!
+;; Please note if you use evil-leader, (setq evilnc-hotkey-comment-operator "\\\\")
+;; does NOT work! You need set up the hot key for command "evilnc-comment-operator" directly.
+;; Check the end of README for sample setup
+(setq evilnc-hotkey-comment-operator ",,")
+(require 'evil-nerd-commenter)
+(evilnc-default-hotkeys)
+;;
+;; Evil Matchit
+;; 
+(require 'evil-matchit)
+(global-evil-matchit-mode 1)
 
 ;;
 ;; ace jump mode major function
