@@ -9,6 +9,8 @@
 (key-chord-mode 1)
 (key-chord-define evil-insert-state-map  "kj" 'evil-normal-state)
 
+(load "undo-tree.el")
+
 ;; swap keys
 (define-key key-translation-map ":" ";")
 (define-key key-translation-map ";" ":")
